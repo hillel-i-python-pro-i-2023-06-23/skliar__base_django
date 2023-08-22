@@ -1,0 +1,142 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Montserrat", Arial, sans-serif;
+}
+
+@font-face {
+  font-family: "Montserrat"; /* Имя шрифта, которое будет использоваться в CSS */
+  src: url("static/fonts/Montserrat-Italic-VariableFont_wght.ttf") format("truetype");/* Путь к файлу шрифта */
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  text-align: center;
+  padding: 20px;
+  background-color: #ebebeb; /* Пастельный фон */
+}
+
+body {
+  background-color: #f9f9f9; /* Пастельный фон */
+  color: #333;
+  line-height: 1.6;
+  display: flex;
+  flex-direction: column; /* Устанавливаем основное направление flex контейнера на колонку */
+  min-height: 100vh; /* Устанавливаем минимальную высоту на весь видимый экран */
+}
+
+main {
+  margin-top: 20px;
+  text-align: center;
+  flex: 1; /* Растягиваем основной контент (main) на всю доступную высоту */
+}
+
+section {
+  text-align: center;
+  padding: 20px;
+}
+
+nav {
+  flex: 1;
+  margin-bottom: 20px;
+}
+
+nav a {
+  display: inline-block;
+  margin-right: 20px;
+  color: #666;
+  text-decoration: none;
+}
+
+nav i:hover {
+  color: #333;
+}
+
+h1 {
+  font-size: 36px;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+h2 {
+  flex: 1;
+  font-size: 24px;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.menu {
+  background-color: #d0d6d8; /* Пастельный фон */
+}
+
+.menu a {
+  display: inline-block;
+  margin-right: 20px;
+  color: #666;
+  text-decoration: none;
+}
+
+.header__title {
+  flex: 1;
+}
+
+footer {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  padding: 30px;
+  background-color: #ebebeb; /* Пастельный фон */
+}
+
+footer a {
+  width: 70px;
+  display: inline-block;
+  color: #666;
+  text-decoration: none;
+}
+
+footer a:hover {
+  opacity: 0.5;
+}
+
+ul {
+  text-align: center;
+}
+
+button {
+  width: 30%;
+  border: none;
+  background-color: #848988;
+  margin: 20px;
+  padding: 10px;
+  cursor: pointer;
+}
+input {
+  width: 30%;
+  margin: 20px;
+  padding: 10px;
+  border-color: #848988;
+}
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.links a {
+  display: inline-block;
+  margin-right: 20px;
+  color: #666;
+  text-decoration: none;
+  cursor: pointer;
+  background-color: #b6b6b6;
+  padding: 10px;
+  font-weight: 700;
+}
+
+.links a:hover {
+  text-decoration: underline;
+}

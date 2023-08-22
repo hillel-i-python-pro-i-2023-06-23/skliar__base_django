@@ -1,0 +1,4 @@
+.idea
+.mypy_cache
+docker-compose.override.yml
+venv

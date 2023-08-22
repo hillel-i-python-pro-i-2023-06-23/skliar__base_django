@@ -1,0 +1,40 @@
+{% extends "_helpers/_base.html" %}
+
+
+{% block title %}
+    {{ title }}
+{% endblock %}
+
+
+{% block content %}
+    <div class="home_page_check">
+    <label for="option1">Настроенные линтеры и т.п</label>
+    <input type="checkbox" id="option1" name="options" value="option1" ><br>
+    <label for="option1">Зафиксированные зависимости</label>
+    <input type="checkbox" id="option1" name="options" value="option1"  checked><br>
+    <label for="option1">Сохранённая конфигурация запуска для PyCharm</label>
+    <input type="checkbox" id="option1" name="options" value="option1"  checked><br>
+    <label for="option1">Настроенный .gitignore</label>
+    <input type="checkbox" id="option1" name="options" value="option1"><br>
+    <label for="option1">Docker + Docker Compose</label>
+    <input type="checkbox" id="option1" name="options" value="option1" ><br>
+    <label for="option1">Команды для быстрого запуска типичных задач</label>
+    <input type="checkbox" id="option1" name="options" value="option1" checked><br>
+    <label for="option1">База данных Postgres</label>
+    <input type="checkbox" id="option1" name="options" value="option1"><br>
+    <label for="option1">Настройка приложения через переменные окружения</label>
+    <input type="checkbox" id="option1" name="options" value="option1"><br>
+    <label for="option1">Static & Media</label>
+    <input type="checkbox" id="option1" name="options" value="option1"><br>
+    <label for="option1">Настроена работа с файлами</label>
+    <input type="checkbox" id="option1" name="options" value="option1"><br>
+    <label for="option1">Шаблоны</label>
+    <input type="checkbox" id="option1" name="options" value="option1" checked><br>
+    <label for="option1">Базовый визуал. Подключены Bootstrap, Crispy forms и т.п.</label>
+    <input type="checkbox" id="option1" name="options" value="option1"><br>
+    <label for="option1">Работа с пользователями. Они часто полезны</label>
+    <input type="checkbox" id="option1" name="options" value="option1" checked><br>
+    <label for="option1">Сделан Readme</label>
+    <input type="checkbox" id="option1" name="options" value="option1"><br>
+    </div>
+{% endblock %}

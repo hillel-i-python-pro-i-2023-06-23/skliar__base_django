@@ -1,0 +1,57 @@
+#используються хуки общепринятые, с серверов
+
+#exclude: core/
+
+repos:
+-   repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.4.0
+    hooks:
+    -   id: trailing-whitespace # проверка на пробелы после строки
+    -   id: end-of-file-fixer # пустая строка в конце файла
+    -   id: check-yaml # проверка синтаксиса yaml файлов
+    -   id: debug-statements # проверка отладочных операторов, например print
+#    -   id: double-quote-string-fixer # переделывает одинарные кавычки в двойные
+    -   id: name-tests-test # проверяет имена тестовых функция с общепринятыми
+#    -   id: requirements-txt-fixer # форматирует удобненько
+
+-   repo: https://github.com/asottile/setup-cfg-fmt
+    rev: v2.4.0
+    hooks:
+    -   id: setup-cfg-fmt # для удобства читаемости
+
+#-   repo: https://github.com/asottile/reorder-python-imports
+#    rev: v3.10.0
+#    hooks:
+#    -   id: reorder-python-imports # сортирует импорты
+#        args: [--py38-plus, --add-import, 'from __future__ import annotations']
+
+-   repo: https://github.com/asottile/add-trailing-comma
+    rev: v3.0.0
+    hooks:
+    -   id: add-trailing-comma # добавляет запятую в конце списков и кортежей
+
+-   repo: https://github.com/asottile/pyupgrade
+    rev: v3.9.0
+    hooks:
+    -   id: pyupgrade # обновления для кода для совместимости
+        args: [--py38-plus]
+
+-   repo: https://github.com/psf/black
+    rev: 23.7.0
+    hooks:
+    - id: black # форматор кода
+
+-   repo: https://github.com/pre-commit/mirrors-autopep8
+    rev: v2.0.2
+    hooks:
+    -   id: autopep8 # форматор кода
+
+-   repo: https://github.com/PyCQA/flake8
+    rev: 6.0.0
+    hooks:
+    -   id: flake8 # ошибки стиль
+
+-   repo: https://github.com/pre-commit/mirrors-mypy
+    rev: v1.4.1
+    hooks:
+    -   id: mypy # анализ типов кода
