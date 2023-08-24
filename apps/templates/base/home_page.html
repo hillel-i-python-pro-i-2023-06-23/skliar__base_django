@@ -7,34 +7,23 @@
 
 
 {% block content %}
+    <button id="showButton" name="showButton">Add task</button>
+    <form id="myForm" method="POST">
+    {% csrf_token %}
+        <label for="name_task">What you should to do?</label>
+        <input type="text" name="name_task"/>
+        <label for="check">do or not:</label>
+        <input type="checkbox" name="check" value="true"/>
+        <button type="submit">Add task</button>
+    </form>
+
+
     <div class="home_page_check">
-    <label for="option1">Настроенные линтеры и т.п</label>
-    <input type="checkbox" id="option1" name="options" value="option1" checked><br>
-    <label for="option1">Зафиксированные зависимости</label>
-    <input type="checkbox" id="option2" name="options" value="option2"  checked><br>
-    <label for="option1">Сохранённая конфигурация запуска для PyCharm</label>
-    <input type="checkbox" id="option3" name="options" value="option3"  checked><br>
-    <label for="option1">Настроенный .gitignore</label>
-    <input type="checkbox" id="option4" name="options" value="option4" checked><br>
-    <label for="option1">Docker + Docker Compose</label>
-    <input type="checkbox" id="option5" name="options" value="option5" checked><br>
-    <label for="option1">Команды для быстрого запуска типичных задач</label>
-    <input type="checkbox" id="option6" name="options" value="option6" checked><br>
-    <label for="option1">База данных Postgres</label>
-    <input type="checkbox" id="option7" name="options" value="option7"><br>
-    <label for="option1">Настройка приложения через переменные окружения</label>
-    <input type="checkbox" id="option8" name="options" value="option8"><br>
-    <label for="option1">Static & Media</label>
-    <input type="checkbox" id="option9" name="options" value="option9"><br>
-    <label for="option1">Настроена работа с файлами</label>
-    <input type="checkbox" id="option10" name="options" value="option10"><br>
-    <label for="option1">Шаблоны</label>
-    <input type="checkbox" id="option11" name="options" value="option11" checked><br>
-    <label for="option1">Базовый визуал. Подключены Bootstrap, Crispy forms и т.п.</label>
-    <input type="checkbox" id="option1" name="options" value="option1"><br>
-    <label for="option1">Работа с пользователями. Они часто полезны</label>
-    <input type="checkbox" id="option12" name="options" value="option12" checked><br>
-    <label for="option1">Сделан Readme</label>
-    <input type="checkbox" id="option13" name="options" value="option13" checked><br>
+    {% for task in tasks %}
+        <label for="task{{ forloop.counter }}">{{ task.task }}</label>
+        <input type="checkbox" name="task{{ forloop.counter }}" value="{{ task.is_done }}"
+               {% if task.is_done %}checked{% endif %} disabled>
+    {% endfor %}
+
     </div>
 {% endblock %}
