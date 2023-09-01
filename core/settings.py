@@ -49,6 +49,7 @@ LOCAL_APPS = [
     "apps.base",
     "apps.users",
     "apps.game_word",
+    "apps.phone_book",
 ]
 
 THIRD_PARTY_APPS: List[list] = []
