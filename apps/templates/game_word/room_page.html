@@ -1,0 +1,28 @@
+{% extends "_helpers/_base.html" %}
+
+{% block title %}
+    {{ room.name }} - Угадай слово
+{% endblock %}
+
+{% block content %}
+    <h1>Комната: {{ room.name }}</h1>
+    <p>Игрок: {{ player_name }}</p>
+
+    <p>Слово:</p>
+    <p>
+        {% for letter in room.guessed_word %}
+            {% if letter == '_' %}
+                _
+            {% else %}
+                {{ letter }}
+            {% endif %}
+        {% endfor %}
+    </p>
+
+    <form method="POST">
+        {% csrf_token %}
+        <label for="letter">Введите букву:</label>
+        <input type="text" name="letter" maxlength="1" required>
+        <button type="submit">Угадать</button>
+    </form>
+{% endblock %}
