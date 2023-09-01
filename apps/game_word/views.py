@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render
 from .models import Word, GameRoom, Player, PlayerGameRoom
 
 # Create your views here.
@@ -30,7 +30,7 @@ def base_game(request):
             player, created = Player.objects.get_or_create(name=player_name)
             PlayerGameRoom.objects.get_or_create(player=player, game_room=game_room)
 
-        return redirect(request, template_name="game_word/room_page.html", context={"title": "Game"})
+        return render(request, template_name="game_word/room_page.html", context={"title": "Game"})
 
     return render(request, template_name="game_word/game_home.html", context={"title": "Game"})
 
