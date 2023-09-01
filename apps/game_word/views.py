@@ -4,7 +4,12 @@ from .models import Word, GameRoom, Player, PlayerGameRoom
 # Create your views here.
 
 
-def base_game(request):
+def all_room(request):
+    rooms = GameRoom.objects.all()
+    return render(request, template_name="game_word/all_rooms.html", context={"title": "All rooms", "rooms": rooms})
+
+
+def add_room_and_start(request):
     if request.method == "POST":
         # Get data from the form
         players_input = request.POST.get("name_players")
@@ -22,7 +27,6 @@ def base_game(request):
             name=room_name,
             word_to_guess=word,
             current_state="_" * len(input_word),
-            max_players=4,  # You can adjust this as needed
         )
 
         # Create Player instances and add them to the GameRoom
@@ -30,21 +34,6 @@ def base_game(request):
             player, created = Player.objects.get_or_create(name=player_name)
             PlayerGameRoom.objects.get_or_create(player=player, game_room=game_room)
 
-        return render(request, template_name="game_word/room_page.html", context={"title": "Game"})
+        return render(request, "game_word/room_page.html")
 
-    return render(request, template_name="game_word/game_home.html", context={"title": "Game"})
-
-
-def room_page(request):
-    game_room_id = 1
-    room = GameRoom.objects.get(id=game_room_id)
-    room_name = "no"
-    if room:
-        room_name = room.name
-    if request.method == "POST":
-        pass
-    return render(
-        request,
-        template_name="game_word/room_page.html",
-        context={"title": "Game", "room_name": room_name},
-    )
+    return render(request, template_name="game_word/add_game.html", context={"title": "Game"})

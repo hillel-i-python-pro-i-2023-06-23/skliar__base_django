@@ -1,0 +1,24 @@
+{% extends "_helpers/_base.html" %}
+
+
+{% block title %}
+    {{ title }}
+{% endblock %}
+
+
+{% block content %}
+
+    <div class="all_rooms">
+    {% for room in rooms %}
+    <div class="room">
+    <label class="room label">{{ room.name }}</label>
+    <label class="room label">{{ room.current_state }}</label>
+    <label class="room label">{{ room.players }}</label>
+    <button class="room button" type="submit" name="{{ room.id }}">Input room</button>
+    </div>
+    {% endfor %}
+    </div>
+    <button><a href="{% url 'game_word:add_room' %}" class="button-link">Add room</a></button>
+
+
+{% endblock %}

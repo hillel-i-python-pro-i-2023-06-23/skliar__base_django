@@ -16,7 +16,6 @@ class GameRoom(models.Model):
     name = models.CharField(max_length=100, unique=True)  # Название игровой комнаты
     word_to_guess = models.ForeignKey(Word, on_delete=models.CASCADE)  # Ссылка на слово для угадывания
     current_state = models.CharField(max_length=100)  # Текущее состояние слова с открытыми буквами
-    max_players = models.PositiveIntegerField(default=4)  # Максимальное количество игроков
     players = models.ManyToManyField("Player", through="PlayerGameRoom")  # Связь с игроками через PlayerGameRoom
 
     def __str__(self):
