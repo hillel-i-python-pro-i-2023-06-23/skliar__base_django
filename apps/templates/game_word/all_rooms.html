@@ -11,10 +11,10 @@
     <div class="all_rooms">
     {% for room in rooms %}
     <div class="room">
-    <label class="room label">{{ room.name }}</label>
-    <label class="room label">{{ room.current_state }}</label>
-    <label class="room label">{{ room.players }}</label>
-    <button class="room button" type="submit" name="{{ room.id }}">Input room</button>
+    <label class="room_label">{{ room.name }}</label>
+    <label class="room_label">{{ room.current_state }}</label>
+    <label class="room_label">{{ room.players }}</label>
+    <button class="room_button" type="submit" name="{{ room.id }}">Input room</button>
     </div>
     {% endfor %}
     </div>

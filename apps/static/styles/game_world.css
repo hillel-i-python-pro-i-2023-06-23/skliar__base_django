@@ -1,0 +1,24 @@
+.room {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  justify-content: center;
+  margin: 10px;
+  background-color: #ccc;
+
+}
+
+.room_label {
+  text-align: center;
+  padding: 10px;
+  align-items: center;
+
+}
+.room_label button {
+  text-align: center; /* Выравниваем текст кнопки по центру */
+}
+
+.button-link {
+    text-decoration: none;
+    color: black;
+  }

@@ -1,0 +1,32 @@
+.links a {
+  display: inline-block;
+  margin-right: 20px;
+  color: #666;
+  text-decoration: none;
+  cursor: pointer;
+  background-color: #b6b6b6;
+  padding: 10px;
+  font-weight: 700;
+}
+
+.links a:hover {
+  text-decoration: underline;
+}
+
+.home_page_check {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  margin: 0 auto;
+  max-width: 800px;
+  align-items: center;
+  padding: 0 10px ;
+}
+
+.home_page_check label {
+  grid-column: 1 / span 1;
+  text-align: center;
+}
+
+.home_page_check input {
+  grid-column: 2 / span 1;
+}
