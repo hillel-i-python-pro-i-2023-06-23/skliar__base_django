@@ -1,13 +1,10 @@
-from django.shortcuts import redirect, render
-from django.core.management import call_command
+from django.shortcuts import render
+from apps.phone_book.models import Contact
+
 
 # Create your views here.
 
 
 def home_page(request):
-    return render(request, "phone_book/home_page.html")
-
-
-def generate_fake_data(request):
-    call_command("populate_data")
-    return redirect("base")
+    contacts = Contact.objects.all()
+    return render(request, "phone_book/home_page.html", context={"contacts": contacts})
