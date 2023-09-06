@@ -1,6 +1,6 @@
 {% extends "_helpers/_base.html" %}
 
-
+<meta http-equiv="refresh" content="0">
 {% block title %}
     {{ title }}
 {% endblock %}
@@ -9,7 +9,7 @@
 {% block content %}
 
     <h2>All contacts</h2>
-<table>
+<table id="contactTable">
         <thead>
             <tr>
                 <th>Имя</th>
@@ -20,7 +20,7 @@
         </thead>
         <tbody>
             {% for contact in contacts %}
-                <tr style="border: 1px solid #000; padding: 10px;">
+                <tr>
                     <td>{{ contact.name }}</td>
                     <td>{{ contact.birthdate }}</td>
                     <td>
@@ -37,4 +37,11 @@
             {% endfor %}
         </tbody>
     </table>
+
+
+    <form method="POST" action="{% url 'phone_book:generate_user' %}">
+        {% csrf_token %}
+        <button type="submit">Генерировать данные</button>
+    </form>
+
 {% endblock %}

@@ -17,5 +17,7 @@ make migrate
 
 make init-dev-i-create-superuser
 
+make generate-contacts
+
 # Run application.
 python manage.py runserver 0.0.0.0:8000

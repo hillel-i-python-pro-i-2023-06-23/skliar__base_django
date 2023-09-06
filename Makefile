@@ -77,3 +77,8 @@ migrate:
 # Create superuser
 init-dev-i-create-superuser:
 	@python manage.py createadmin
+
+.PHONY: generate-contacts
+# Generate contacts for mobail book
+generate-contacts:
+	@python manage.py generate_contacts
