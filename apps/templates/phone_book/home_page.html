@@ -9,9 +9,9 @@
 {% block content %}
 
     <h2>All contacts</h2>
-<table id="contactTable">
+<table class="contactTable">
         <thead>
-            <tr>
+            <tr class="contact-data">
                 <th>Имя</th>
                 <th>Дата рождения</th>
                 <th>Группы</th>
@@ -20,7 +20,7 @@
         </thead>
         <tbody>
             {% for contact in contacts %}
-                <tr>
+                <tr class="contact-data">
                     <td>{{ contact.name }}</td>
                     <td>{{ contact.birthdate }}</td>
                     <td>

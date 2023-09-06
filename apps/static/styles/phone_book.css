@@ -1,4 +1,14 @@
-tr.contact-data{
-    border: 1px solid #000;
-    padding: 10px;
-}
+ .contactTable {
+        border-collapse: collapse; /* Объединение границ ячеек */
+        width: 100%;
+        border: 1px solid #000;
+    }
+
+    .contactTable th, .contactTable td {
+        border: 1px solid #000;
+        padding: 8px;
+    }
+
+    .contactTable th {
+        background-color: #f2f2f2;
+    }
