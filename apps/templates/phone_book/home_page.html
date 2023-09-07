@@ -1,0 +1,47 @@
+{% extends "_helpers/_base.html" %}
+
+<meta http-equiv="refresh" content="0">
+{% block title %}
+    {{ title }}
+{% endblock %}
+
+
+{% block content %}
+
+    <h2>All contacts</h2>
+<table class="contactTable">
+        <thead>
+            <tr class="contact-data">
+                <th>Имя</th>
+                <th>Дата рождения</th>
+                <th>Группы</th>
+                <th>Контактные данные</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for contact in contacts %}
+                <tr class="contact-data">
+                    <td>{{ contact.name }}</td>
+                    <td>{{ contact.birthdate }}</td>
+                    <td>
+                        {% for group in contact.groups.all %}
+                            {{ group.name }}{% if not forloop.last %}, {% endif %}
+                        {% endfor %}
+                    </td>
+                    <td>
+                        {% for contact_data in contact.contact_data.all %}
+                            {{ contact_data.value }} {% if not forloop.last %}, {% endif %}
+                        {% endfor %}
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+
+    <form method="POST" action="{% url 'phone_book:generate_user' %}">
+        {% csrf_token %}
+        <button type="submit">Генерировать данные</button>
+    </form>
+
+{% endblock %}

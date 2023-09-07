@@ -9,7 +9,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{% static 'styles/style.css' %}">
-    <script src="{% static 'base/base.js' %}"></script>
+    <script src="{% static 'js/base.js' %}"></script>
 
 
     <title>
@@ -49,7 +49,7 @@
 
   <section class="menu">
       <a href="{% url 'base:home_page' %}">Главная</a>
-{#      <a href="{% url 'phone_book:game_home' %}">Тел.книга</a>#}
+      <a href="{% url 'phone_book:home_page' %}">Тел.книга</a>
       <a href="{% url 'game_word:all_rooms' %}">Игра</a>
   </section>
 
