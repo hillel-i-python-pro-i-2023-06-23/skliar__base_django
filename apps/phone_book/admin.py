@@ -2,14 +2,14 @@ from django.contrib import admin
 from .models import ContactType, ContactData, Group, Contact
 
 
+class ContactDataInline(admin.TabularInline):
+    model = ContactData
+    extra = 1  # Количество дополнительных форм для ввода контактных данных
+
+
 @admin.register(ContactType)
 class ContactTypeAdmin(admin.ModelAdmin):
     list_display = ("name",)
-
-
-@admin.register(ContactData)
-class ContactDataAdmin(admin.ModelAdmin):
-    list_display = ("contact_type", "value")
 
 
 @admin.register(Group)
@@ -26,3 +26,5 @@ class ContactAdmin(admin.ModelAdmin):
 
     def display_contact_data(self, obj):
         return ", ".join([data.value for data in obj.contact_data.all()])
+
+    inlines = [ContactDataInline]  # Добавляем инлайн для ContactData
