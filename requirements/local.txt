@@ -3,14 +3,14 @@
 
 #always
 # Форматеры кода
-black==23.7.0
-autopep8==2.0.2
+black==23.9.1
+autopep8==2.0.4
 
 # Проверка стиля кода
-flake8==6.0.0
+flake8==6.1.0
 
 # Анализ типов кода
-mypy==1.4.1
+mypy==1.5.1
 
 
 # Дополнительные хуки
@@ -18,5 +18,5 @@ pre-commit==3.3.3
 pre-commit-hooks==v4.4.0
 setup-cfg-fmt==2.4.0
 reorder-python-imports==3.10.0
-add-trailing-comma==3.0.0
-pyupgrade==3.9.0
+add-trailing-comma==3.1.0
+pyupgrade== 3.10.1

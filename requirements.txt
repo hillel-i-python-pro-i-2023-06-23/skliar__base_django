@@ -1,3 +1,4 @@
-
+# pip list --outdated   - command for knows new version
+# pip install -r requirements/local.txt   -  install
 
 --requirement requirements/production.txt

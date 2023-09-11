@@ -1,6 +1,6 @@
 #core for web
-Django==4.2.3
+Django==4.2.5
 
 #optional
-Faker==19.2.0
+Faker==19.6.1
 polls==0.1
