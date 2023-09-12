@@ -1,5 +1,7 @@
 #core for web
 Django==4.2.5
+
+#for env control
 django-environ==0.11.2
 
 
