@@ -1,5 +1,7 @@
 #core for web
 Django==4.2.5
+django-environ==0.11.2
+
 
 #optional
 Faker==19.6.1
