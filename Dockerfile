@@ -27,7 +27,7 @@ COPY --chown=${USER} ./core core
 
 USER ${USER}
 
-VOLUME ${WORKDIR}/db
+#VOLUME ${WORKDIR}/db  #for SQLite
 
 EXPOSE 8000
 

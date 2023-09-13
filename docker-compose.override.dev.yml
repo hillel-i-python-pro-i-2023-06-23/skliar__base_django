@@ -4,6 +4,10 @@ services:
   app:
     ports:
       - "8000:8000"
-    volumes:
-      - ./db:/wd/db:rw
+#    volumes:  #for SQLite
+#      - ./db:/wd/db:rw
     user: "1000"
+
+  postgres:
+    ports:
+      - "5432:5432"

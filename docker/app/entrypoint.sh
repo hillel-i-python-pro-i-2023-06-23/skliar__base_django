@@ -13,6 +13,31 @@ set -o pipefail
 set -o nounset
 # [bash_init]-[END]
 
+#wait_postgres
+export DATABASE_URL="postgres://${POSTGRES_USER}:${POSTGRES_PASSWORD}@${POSTGRES_HOST}:${POSTGRES_PORT}/${POSTGRES_DB}"
+
+postgres_ready(){
+  python <<END
+import sys
+import psycopg
+
+try:
+    psycopg.connect(
+    '${DATABASE_URL}'
+    )
+except psycopg.OperationalError:
+    sys.exit(-1)
+sys.exit(0)
+
+END
+}
+
+until postgres_ready; do
+  echo >&2 'PostgreSQL is unavailable (sleeping)...'
+  sleep 1
+done
+
+echo >&2 'PostgreSQL is up - continuing...'
 
 echo "Executing command: $cmd"
 

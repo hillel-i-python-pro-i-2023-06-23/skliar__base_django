@@ -52,6 +52,13 @@ homework-i-run:
 homework-i-purge:
 	@echo Goodbye
 
+.PHONY: d-run-i-local-dev
+#for run postgres
+d-run-i-local-dev:
+	@COMPOSE_DOCKER_CLI_BUILD=1 DOCKER_BUILDKIT=1 \
+		docker-compose \
+			up --build postgres
+
 
 .PHONY: pre-commit-run
 # Run tools for files from commit.
