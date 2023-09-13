@@ -4,4 +4,8 @@ version: '3.9'
 services:
   app:
     build: .
-      #    image: my_account/my_super_tool:1.6
+        #    image: my_account/my_super_tool:1.6
+#        envirounment:
+#          -DJANGO__DEBUG =True
+    env_file:
+      - .env
