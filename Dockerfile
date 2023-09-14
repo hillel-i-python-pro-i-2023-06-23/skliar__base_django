@@ -12,7 +12,8 @@ RUN useradd --system ${USER} && \
 
 RUN apt update && apt upgrade -y
 
-COPY --chown=${USER} ./requirements ./requirements
+COPY --chown=${USER} requirements.txt requirements.txt
+COPY --chown=${USER} requirements requirements
 
 RUN pip install --upgrade pip && \
     pip install --requirement ./requirements/production.txt
