@@ -9,3 +9,5 @@
 !manage.py
 !requirements.txt
 !Makefile
+!.env
+!docker-compose.yml

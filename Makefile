@@ -21,13 +21,32 @@ init-configs:
 # Just run
 d-run:
 	@COMPOSE_DOCKER_CLI_BUILD=1 DOCKER_BUILDKIT=1 \
-		docker compose up --build
+		COMPOSE_PROFILES=full_dev \
+		docker compose \
+			up --build
+
+.PHONY: d-run-i-local-dev
+# Just run
+d-run-i-local-dev:
+	@COMPOSE_DOCKER_CLI_BUILD=1 DOCKER_BUILDKIT=1 \
+		COMPOSE_PROFILES=local_dev \
+		docker compose \
+			up --build
 
 .PHONY: d-stop
 # Stop services
 d-stop:
 	@COMPOSE_DOCKER_CLI_BUILD=1 DOCKER_BUILDKIT=1 \
 		docker compose down
+
+
+.PHONY: d-stop-all-containers-and-delete-volumes
+#stop all containers
+d-stop-all-containers-and-delete-volumes:
+	@docker stop $$(docker ps -a -q) &&\
+		docker rm $$(docker ps -a -q) &&\
+			docker volume rm --force $$(docker volume ls -q)
+
 
 .PHONY: d-purge
 # Purge all data related with services
@@ -40,7 +59,7 @@ d-purge:
 # Init environment for development
 init-dev:
 	@pip install --upgrade pip && \
-	pip install --requirement requirements.txt && \
+	pip install --requirement requirements/local.txt && \
 	pre-commit install
 
 .PHONY: homework-i-run
@@ -69,10 +88,19 @@ pre-commit-run-all:
 migrations:
 	@python manage.py makemigrations
 
+
 .PHONY: migrate
 # Migrate
 migrate:
 	@python manage.py migrate
+
+
+.PHONY: init-dev-i-migrate-all
+# Make migrations and make migrate together
+init-dev-i-migrate-all:
+	@python manage.py makemigrations && \
+	python manage.py migrate
+
 
 .PHONY: init-dev-i-create-superuser
 # Create superuser
